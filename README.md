@@ -29,5 +29,7 @@ dev_dependencies:
 ## Usage
 
 ```dart
-import 'package:sunmiconditionalimports/sunmiconditionalimports.dart';
+import 'package:sunmiconditionalimports/sunmiconditionalimports_exports.dart';
 ```
+
+DO NOT import the other files directly, as they are not intended to be used directly.
