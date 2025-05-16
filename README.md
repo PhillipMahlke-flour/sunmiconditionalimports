@@ -31,9 +31,3 @@ dev_dependencies:
 ```dart
 import 'package:sunmiconditionalimports/sunmiconditionalimports.dart';
 ```
-
-## Example
-
-```dart
-import 'package:sunmiconditionalimports/sunmiconditionalimports.dart';
-```
