@@ -11,3 +11,7 @@
 ## 0.0.3
 
 * Updated flutter version
+
+## 0.0.3+1
+
+* Updated dart sdk version
