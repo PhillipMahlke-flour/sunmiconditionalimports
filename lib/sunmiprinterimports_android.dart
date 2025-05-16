@@ -1,10 +1,12 @@
 
-import 'package:sunmiprinterimports/sunmiprinterimports_base.dart';
+import 'package:sunmiconditionalimports/sunmiprinterimports_base.dart';
 import 'package:sunmi_printer_plus/sunmi_printer_plus.dart';
-import 'package:sunmi_printer_plus/sunmi_style.dart';
 import 'package:sunmi_printer_plus/column_maker.dart';
 import 'package:sunmi_printer_plus/enums.dart';
 import 'package:bitmap/bitmap.dart';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class SunmiPrinterImports extends SunmiPrinterImportsBase {
   @override
@@ -13,8 +15,8 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  setAlignment(SunmiPrintAlignImportsBase alignment) {
-    SunmiPrinter.setAlignment(alignment);
+  setAlignment(Object alignment) {
+    SunmiPrinter.setAlignment(alignment as SunmiPrintAlign);
   }
 
   @override
@@ -43,8 +45,8 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  setFontSize(SunmiFontSizeImportsBase fontSize) {
-    SunmiPrinter.setFontSize(fontSize);
+  setFontSize(Object fontSize) {
+    SunmiPrinter.setFontSize(fontSize as SunmiFontSize);
   }
 
   @override
@@ -58,13 +60,13 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  printRow(List<ColumnMakerImportBase> columns) {
-    SunmiPrinter.printRow(cols: columns);
+  printRow(List<Object> columns) {
+    SunmiPrinter.printRow(cols: columns as List<ColumnMaker>);
   }
 
   @override
-  line(int count) {
-    SunmiPrinter.line(count);
+  line() {
+    SunmiPrinter.line();
   }
 
   @override
@@ -134,16 +136,16 @@ class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
 
 class ColumnMakerImports extends ColumnMakerImportBase {
   @override
-  createColumnMaker(String text, int width, SunmiPrintAlignImportsBase alignment) {
-    return ColumnMaker(text, width, alignment);
+  createColumnMaker(String text, int width, Object alignment) {
+    return ColumnMaker(text: text, width: width, align: alignment as SunmiPrintAlign);
   }
 }
 
 class BitmapImports extends BitmapImportBase {
   @override
-  fromProvider(NetworkImage image, int width) {
-    Bitmap bitmap = await Bitmap.fromProvider(ni);
-    int logoWidth = (384 / 100 * prnt.logoSize).toInt();
+  fromProvider(NetworkImage image, int width) async {
+    Bitmap bitmap = await Bitmap.fromProvider(image);
+    int logoWidth = (384 / 100 * width).toInt();
     Bitmap resizedBitmap = bitmap.apply(BitmapResize.to(width: logoWidth));
     Uint8List headedBitmap = resizedBitmap.buildHeaded();
     return headedBitmap;

@@ -1,10 +1,13 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'dart:typed_data';
+import 'dart:core';
 
 abstract class SunmiPrinterImportsBase {
 
   startTransactionPrint();
 
-  setAlignment(SunmiPrintAlignImportsBase alignment);
+  setAlignment(Object alignment);
 
   printImage(Uint8List image);
 
@@ -16,15 +19,15 @@ abstract class SunmiPrinterImportsBase {
 
   resetFontSize();
 
-  setFontSize(SunmiFontSizeImportsBase fontSize);
+  setFontSize(Object fontSize);
 
   bold();
 
   resetBold();
 
-  printRow(List<ColumnMakerImportBase> columns);
+  printRow(List<Object> columns);
 
-  line(int count);
+  line();
 
   printQRCode(String data);
 
@@ -51,7 +54,7 @@ abstract class SunmiFontSizeImportsBase {
 }
 
 abstract class ColumnMakerImportBase {
-  createColumnMaker(String text, int width, SunmiPrintAlignImportsBase alignment);
+  createColumnMaker(String text, int width, Object alignment);
 }
 
 abstract class BitmapImportBase {

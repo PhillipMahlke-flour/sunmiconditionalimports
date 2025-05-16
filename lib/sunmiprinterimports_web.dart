@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:sunmiprinterimports/sunmiprinterimports_base.dart';
+import 'package:flutter/material.dart';
+import 'package:sunmiconditionalimports/sunmiprinterimports_base.dart';
 
 class SunmiPrinterImports extends SunmiPrinterImportsBase {
   @override
@@ -8,7 +9,7 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  setAlignment(SunmiPrintAlignImportsBase alignment) {
+  setAlignment(Object alignment) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
@@ -38,7 +39,7 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  setFontSize(SunmiFontSizeImportsBase fontSize) {
+  setFontSize(Object fontSize) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
@@ -53,12 +54,12 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  printRow(List<ColumnMakerImportBase> columns) {
+  printRow(List<Object> columns) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
   @override
-  line(int count) {
+  line() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
@@ -129,14 +130,14 @@ class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
 
 class ColumnMakerImports extends ColumnMakerImportBase {
   @override
-  createColumnMaker(String text, int width, SunmiPrintAlignImportsBase alignment) {
+  createColumnMaker(String text, int width, Object alignment) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
 
 class BitmapImports extends BitmapImportBase {
   @override
-  fromProvider(NetworkImage image) {
+  fromProvider(NetworkImage image, int width) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
