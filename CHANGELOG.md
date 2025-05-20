@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.10
+
+* updated web functionality. removed kDebugMode check
+
 ## 0.0.9
 
 * updated ColumnMaker to function the same as in sunmi_printer_plus package
