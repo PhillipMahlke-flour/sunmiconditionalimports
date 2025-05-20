@@ -60,7 +60,7 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  printRow({List<Object> cols}) {
+  printRow({List<Object> cols = const []}) {
     SunmiPrinter.printRow(cols: cols as List<ColumnMaker>);
   }
 
@@ -136,7 +136,7 @@ class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
 
 class ColumnMakerImports extends ColumnMakerImportBase {
   @override
-  createColumnMaker({String text, int width, Object alignment}) {
+  createColumnMaker({String text = '', int width = 0, Object alignment = SunmiPrintAlign.LEFT}) {
     return ColumnMaker(text: text, width: width, align: alignment as SunmiPrintAlign);
   }
 }

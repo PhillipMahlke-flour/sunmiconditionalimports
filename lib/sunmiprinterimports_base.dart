@@ -25,7 +25,7 @@ abstract class SunmiPrinterImportsBase {
 
   resetBold();
 
-  printRow(List<Object> columns);
+  printRow({List<Object> cols = const []});
 
   line();
 
@@ -54,7 +54,7 @@ abstract class SunmiFontSizeImportsBase {
 }
 
 abstract class ColumnMakerImportBase {
-  createColumnMaker(String text, int width, Object alignment);
+  createColumnMaker({String text = '', int width = 0, Object alignment = const {}});
 }
 
 abstract class BitmapImportBase {
