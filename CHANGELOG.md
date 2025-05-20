@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.7
+
+* added a missing named parameter
+
 ## 0.0.6
 
 * fixed an error with named parameters

@@ -27,7 +27,7 @@ abstract class SunmiPrinterImportsBase {
 
   printRow({List<Object> cols = const []});
 
-  line();
+  line({int len = 1});
 
   printQRCode(String data);
 

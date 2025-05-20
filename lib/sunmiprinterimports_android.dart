@@ -65,8 +65,8 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  line() {
-    SunmiPrinter.line();
+  line({int len = 1}) {
+    SunmiPrinter.line(len: len);
   }
 
   @override

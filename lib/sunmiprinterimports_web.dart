@@ -59,7 +59,7 @@ class SunmiPrinterImports extends SunmiPrinterImportsBase {
   }
 
   @override
-  line() {
+  line({int len = 1}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
