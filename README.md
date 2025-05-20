@@ -23,13 +23,13 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  sunmiconditionalimports: ^0.0.3
+  sunmiconditionalimports: ^0.0.5
 ```
 
 ## Usage
 
 ```dart
-import 'package:sunmiconditionalimports/sunmiconditionalimports_exports.dart';
+import 'package:sunmiconditionalimports/sunmiprinterimports_exports.dart';
 ```
 
 DO NOT import the other files directly, as they are not intended to be used directly.

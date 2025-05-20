@@ -1,17 +1,21 @@
 # CHANGELOG
 
-## 0.0.1
+## 0.0.5
 
-* Initial release.
+* added named parameters to match behaviour of sunmi_printer_plus
 
-## 0.0.2
+## 0.0.4
 
-* Updated README.md to update usage instruction.
+* Updated dart sdk version
 
 ## 0.0.3
 
 * Updated flutter version
 
-## 0.0.4
+## 0.0.2
 
-* Updated dart sdk version
+* Updated README.md to update usage instruction.
+
+## 0.0.1
+
+* Initial release.
