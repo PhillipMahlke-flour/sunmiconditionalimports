@@ -130,7 +130,7 @@ class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
 
 class ColumnMakerImports extends ColumnMakerImportBase {
   @override
-  createColumnMaker({String text = '', int width = 0, Object alignment = const {}}) {
+  createColumnMaker({String text = '', int width = 0, Object align = const {}}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }

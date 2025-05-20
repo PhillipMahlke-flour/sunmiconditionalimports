@@ -54,7 +54,7 @@ abstract class SunmiFontSizeImportsBase {
 }
 
 abstract class ColumnMakerImportBase {
-  createColumnMaker({String text = '', int width = 0, Object alignment = const {}});
+  createColumnMaker({String text = '', int width = 0, Object align = const {}});
 }
 
 abstract class BitmapImportBase {

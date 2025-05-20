@@ -136,8 +136,8 @@ class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
 
 class ColumnMakerImports extends ColumnMakerImportBase {
   @override
-  createColumnMaker({String text = '', int width = 0, Object alignment = SunmiPrintAlign.LEFT}) {
-    return ColumnMaker(text: text, width: width, align: alignment as SunmiPrintAlign);
+  createColumnMaker({String text = '', int width = 0, Object align = SunmiPrintAlign.LEFT}) {
+    return ColumnMaker(text: text, width: width, align: align as SunmiPrintAlign);
   }
 }
 
