@@ -1,152 +1,130 @@
-
-import 'package:sunmiconditionalimports/sunmiprinterimports_base.dart';
-import 'package:sunmi_printer_plus/sunmi_printer_plus.dart';
-import 'package:sunmi_printer_plus/column_maker.dart';
-import 'package:sunmi_printer_plus/enums.dart';
-import 'package:bitmap/bitmap.dart';
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sunmi_printer_plus/sunmi_printer_plus.dart' as sunmi;
+import 'package:sunmi_printer_plus/enums.dart' as sunmi_enums;
+import 'package:sunmi_printer_plus/column_maker.dart' as sunmi_column;
+import 'package:bitmap/bitmap.dart' as bitmap_lib;
+import 'dart:typed_data';
 
-class SunmiPrinterImports extends SunmiPrinterImportsBase {
-  @override
-  startTransactionPrint() {
-    SunmiPrinter.startTransactionPrint(true);
+class SunmiPrinter {
+  // Static methods that implement the platform-specific functionality
+  static Future<bool?> bindingPrinter() {
+    var result = sunmi.SunmiPrinter.bindingPrinter();
+    return result;
+  }
+  
+  static startTransactionPrint() {
+    sunmi.SunmiPrinter.startTransactionPrint();
   }
 
-  @override
-  setAlignment(Object alignment) {
-    SunmiPrinter.setAlignment(alignment as SunmiPrintAlign);
+  static setAlignment(Object alignment) {
+    sunmi.SunmiPrinter.setAlignment(alignment as sunmi_enums.SunmiPrintAlign);
   }
 
-  @override
-  printImage(Uint8List image) {
-    SunmiPrinter.printImage(image);
+  static printImage(Uint8List image) {
+    sunmi.SunmiPrinter.printImage(image);
   }
 
-  @override
-  lineWrap(int count) {
-    SunmiPrinter.lineWrap(count);
+  static lineWrap(int count) {
+    sunmi.SunmiPrinter.lineWrap(count);
   }
 
-  @override
-  setCustomFontSize(int size) {
-    SunmiPrinter.setCustomFontSize(size);
+  static setCustomFontSize(int size) {
+    sunmi.SunmiPrinter.setCustomFontSize(size);
   }
 
-  @override
-  printText(String text) {
-    SunmiPrinter.printText(text);
+  static printText(String text) {
+    sunmi.SunmiPrinter.printText(text);
   }
 
-  @override
-  resetFontSize() {
-    SunmiPrinter.resetFontSize();
+  static resetFontSize() {
+    sunmi.SunmiPrinter.resetFontSize();
   }
 
-  @override
-  setFontSize(Object fontSize) {
-    SunmiPrinter.setFontSize(fontSize as SunmiFontSize);
+  static setFontSize(Object fontSize) {
+    sunmi.SunmiPrinter.setFontSize(fontSize as sunmi_enums.SunmiFontSize);
   }
 
-  @override
-  bold() {
-    SunmiPrinter.bold();
+  static bold() {
+    sunmi.SunmiPrinter.bold();
   }
 
-  @override
-  resetBold() {
-    SunmiPrinter.resetBold();
+  static resetBold() {
+    sunmi.SunmiPrinter.resetBold();
   }
 
-  @override
-  printRow({List<Object> cols = const []}) {
-    SunmiPrinter.printRow(cols: cols as List<ColumnMaker>);
+  static printRow({List<Object> cols = const []}) {
+    sunmi.SunmiPrinter.printRow(cols: cols as List<sunmi_column.ColumnMaker>);
   }
 
-  @override
-  line({int len = 1}) {
-    SunmiPrinter.line(len: len);
+  static line({int len = 1}) {
+    sunmi.SunmiPrinter.line(len: len);
   }
 
-  @override
-  printQRCode(String data) {
-    SunmiPrinter.printQRCode(data);
+  static printQRCode(String data) {
+    sunmi.SunmiPrinter.printQRCode(data);
   }
 
-  @override
-  cut() {
-    SunmiPrinter.cut();
+  static cut() {
+    sunmi.SunmiPrinter.cut();
   }
 
-  @override
-  submitTransactionPrint() {
-    SunmiPrinter.submitTransactionPrint();
+  static submitTransactionPrint() {
+    sunmi.SunmiPrinter.submitTransactionPrint();
   }
 
-  @override
-  exitTransactionPrint() {
-    SunmiPrinter.exitTransactionPrint(true);
+  static exitTransactionPrint() {
+    sunmi.SunmiPrinter.exitTransactionPrint();
   }
 }
 
-class SunmiPrintAlignImports extends SunmiPrintAlignImportsBase {
-  @override
-  center() {
-    return SunmiPrintAlign.CENTER;
+class SunmiPrintAlign {
+  static center() {
+    return sunmi_enums.SunmiPrintAlign.CENTER;
   }
 
-  @override
-  left() {
-    return SunmiPrintAlign.LEFT;
+  static left() {
+    return sunmi_enums.SunmiPrintAlign.LEFT;
   }
 
-  @override
-  right() {
-    return SunmiPrintAlign.RIGHT;
+  static right() {
+    return sunmi_enums.SunmiPrintAlign.RIGHT;
   }
 }
 
-class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
-  @override
-  xs() {
-    return SunmiFontSize.XS;
+class SunmiFontSize {
+  static xs() {
+    return sunmi_enums.SunmiFontSize.XS;
   }
 
-  @override
-  sm() {
-    return SunmiFontSize.SM;
+  static sm() {
+    return sunmi_enums.SunmiFontSize.SM;
   }
 
-  @override
-  md() {
-    return SunmiFontSize.MD;
+  static md() {
+    return sunmi_enums.SunmiFontSize.MD;
   }
 
-  @override
-  lg() {
-    return SunmiFontSize.LG;
+  static lg() {
+    return sunmi_enums.SunmiFontSize.LG;
   }
 
-  @override
-  xl() {
-    return SunmiFontSize.XL;
+  static xl() {
+    return sunmi_enums.SunmiFontSize.XL;
   }
 }
 
-class ColumnMakerImports extends ColumnMakerImportBase {
-  @override
-  createColumnMaker({String text = '', int width = 0, Object align = SunmiPrintAlign.LEFT}) {
-    return ColumnMaker(text: text, width: width, align: align as SunmiPrintAlign);
+class ColumnMaker {
+  static createColumnMaker({String text = '', int width = 0, Object align = sunmi_enums.SunmiPrintAlign.LEFT}) {
+    return sunmi_column.ColumnMaker(text: text, width: width, align: align as sunmi_enums.SunmiPrintAlign);
   }
 }
 
-class BitmapImports extends BitmapImportBase {
-  @override
-  fromProvider(NetworkImage image, int width) async {
-    Bitmap bitmap = await Bitmap.fromProvider(image);
+class Bitmap {
+  static fromProvider(NetworkImage image, int width) async {
+    bitmap_lib.Bitmap bitmap = await bitmap_lib.Bitmap.fromProvider(image);
     int logoWidth = (384 / 100 * width).toInt();
-    Bitmap resizedBitmap = bitmap.apply(BitmapResize.to(width: logoWidth));
+    bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: logoWidth));
     Uint8List headedBitmap = resizedBitmap.buildHeaded();
     return headedBitmap;
   }

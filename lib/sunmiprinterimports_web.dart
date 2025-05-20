@@ -1,143 +1,121 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sunmiconditionalimports/sunmiprinterimports_base.dart';
 
-class SunmiPrinterImports extends SunmiPrinterImportsBase {
-  @override
-  startTransactionPrint() {
+class SunmiPrinter {
+  static Future<bool?> bindingPrinter() {
+    if(kDebugMode) print("We're in Web, nothing to do here!");
+    return Future.value(false);
+  }
+
+  static startTransactionPrint() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  setAlignment(Object alignment) {
+  static setAlignment(Object alignment) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  printImage(Uint8List image) {
+  static printImage(Uint8List image) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  lineWrap(int count) {
+  static lineWrap(int count) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  setCustomFontSize(int size) {
+  static setCustomFontSize(int size) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  printText(String text) {
+  static printText(String text) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  resetFontSize() {
+  static resetFontSize() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  setFontSize(Object fontSize) {
+  static setFontSize(Object fontSize) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  bold() {
+  static bold() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  resetBold() {
+  static resetBold() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  printRow({List<Object> cols = const []}) {
+  static printRow({List<Object> cols = const []}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  line({int len = 1}) {
+  static line({int len = 1}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  printQRCode(String data) {
+  static printQRCode(String data) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  cut() {
+  static cut() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  submitTransactionPrint() {
+  static submitTransactionPrint() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  exitTransactionPrint() {
+  static exitTransactionPrint() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
 
-class SunmiPrintAlignImports extends SunmiPrintAlignImportsBase {
-  @override
-  center() {
+class SunmiPrintAlign {
+  static center() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  left() {
+  static left() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  right() {
+  static right() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
 
-class SunmiFontSizeImports extends SunmiFontSizeImportsBase {
-  @override
-  xs() {
+class SunmiFontSize {
+  static xs() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  sm() {
+  static sm() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  md() {
+  static md() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  lg() {
+  static lg() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 
-  @override
-  xl() {
+  static xl() {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
 
-class ColumnMakerImports extends ColumnMakerImportBase {
-  @override
-  createColumnMaker({String text = '', int width = 0, Object align = const {}}) {
+class ColumnMaker {
+  static createColumnMaker({String text = '', int width = 0, Object align = const {}}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }
 
-class BitmapImports extends BitmapImportBase {
-  @override
-  fromProvider(NetworkImage image, int width) {
+class Bitmap {
+  static fromProvider(NetworkImage image, int width) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
   }
 }

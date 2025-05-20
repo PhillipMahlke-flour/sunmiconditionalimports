@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.8
+
+* added missing bindingPrinter function
+* refactored Code to use static methods
+
 ## 0.0.7
 
 * added a missing named parameter

@@ -23,7 +23,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  sunmiconditionalimports: ^0.0.7
+  sunmiconditionalimports: ^0.0.8
 ```
 
 ## Usage
@@ -32,11 +32,13 @@ dev_dependencies:
 import 'package:sunmiconditionalimports/sunmiprinterimports_exports.dart';
 ```
 
-DO NOT import the other files directly, as they are not intended to be used directly.
+# DO NOT import the other files directly, as they are not intended to be used directly.
 
 
-Replace SunmiPrinter class with SunmiPrinterImports() example: SunmiPrinterImports.printText('Hello World')
-Replace SunmiPrintAlign class with SunmiPrintAlignImports() example: SunmiPrintAlignImports.center()
-Replace SunmiFontSize class with SunmiFontSizeImports() example: SunmiFontSizeImports.md()
-Replace ColumnMaker class with ColumnMakerImports() example: ColumnMakerImports.createColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlignImports.center())
-Replace Bitmap class with BitmapImports() example: BitmapImports.fromProvider(NetworkImage('https://example.com/image.png'), 100)
+Use the following classes from this package:
+
+- `SunmiPrinter` - example: `SunmiPrinter.printText('Hello World')`
+- `SunmiPrintAlign` - example: `SunmiPrintAlign.center()`
+- `SunmiFontSize` - example: `SunmiFontSize.md()`
+- `ColumnMaker` - example: `ColumnMaker.createColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlign.center())`
+- `Bitmap` - example: `Bitmap.fromProvider(NetworkImage('https://example.com/image.png'), 100)`
