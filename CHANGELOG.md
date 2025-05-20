@@ -3,6 +3,7 @@
 ## 0.0.7
 
 * added a missing named parameter
+* updated readme with usage instructions
 
 ## 0.0.6
 
