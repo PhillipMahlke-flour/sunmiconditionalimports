@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.9
+
+* updated ColumnMaker to function the same as in sunmi_printer_plus package
+* added basic error handling
+
 ## 0.0.8
 
 * added missing bindingPrinter function

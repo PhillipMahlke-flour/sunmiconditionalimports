@@ -49,6 +49,7 @@ class SunmiPrinter {
 
   static printRow({List<Object> cols = const []}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
+    // No need to convert columns in web implementation
   }
 
   static line({int len = 1}) {
@@ -109,13 +110,30 @@ class SunmiFontSize {
 }
 
 class ColumnMaker {
+  final String text;
+  final int width;
+  final Object align;
+
+  ColumnMaker({this.text = '', this.width = 0, this.align = const {}}) {
+    if(kDebugMode) print("We're in Web, nothing to do here!");
+  }
+  
+  // For backward compatibility
   static createColumnMaker({String text = '', int width = 0, Object align = const {}}) {
     if(kDebugMode) print("We're in Web, nothing to do here!");
+    return null;
+  }
+  
+  // Convert this wrapper to the format expected by printRow
+  toSunmiColumnMaker() {
+    if(kDebugMode) print("We're in Web, nothing to do here!");
+    return null;
   }
 }
 
 class Bitmap {
-  static fromProvider(NetworkImage image, int width) {
+  static Future<Uint8List?> fromProvider(NetworkImage image, int width) async {
     if(kDebugMode) print("We're in Web, nothing to do here!");
+    return null;
   }
 }

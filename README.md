@@ -23,7 +23,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  sunmiconditionalimports: ^0.0.8
+  sunmiconditionalimports: ^0.0.9
 ```
 
 ## Usage
@@ -40,5 +40,5 @@ Use the following classes from this package:
 - `SunmiPrinter` - example: `SunmiPrinter.printText('Hello World')`
 - `SunmiPrintAlign` - example: `SunmiPrintAlign.center()`
 - `SunmiFontSize` - example: `SunmiFontSize.md()`
-- `ColumnMaker` - example: `ColumnMaker.createColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlign.center())`
+- `ColumnMaker` - example: `ColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlign.center())`
 - `Bitmap` - example: `Bitmap.fromProvider(NetworkImage('https://example.com/image.png'), 100)`

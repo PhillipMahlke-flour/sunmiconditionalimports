@@ -9,72 +9,151 @@ import 'dart:typed_data';
 class SunmiPrinter {
   // Static methods that implement the platform-specific functionality
   static Future<bool?> bindingPrinter() {
-    var result = sunmi.SunmiPrinter.bindingPrinter();
-    return result;
+    try {
+      var result = sunmi.SunmiPrinter.bindingPrinter();
+      return result;
+    } catch (e) {
+      throw Exception('Error binding printer: $e');
+    }
   }
   
   static startTransactionPrint() {
-    sunmi.SunmiPrinter.startTransactionPrint();
+    try {
+      sunmi.SunmiPrinter.startTransactionPrint();
+    } catch (e) {
+      throw Exception('Error starting transaction print: $e');
+    }
   }
 
   static setAlignment(Object alignment) {
-    sunmi.SunmiPrinter.setAlignment(alignment as sunmi_enums.SunmiPrintAlign);
+    try {
+      sunmi.SunmiPrinter.setAlignment(alignment as sunmi_enums.SunmiPrintAlign);
+    } catch (e) {
+      throw Exception('Error setting alignment: $e');
+    }
   }
 
   static printImage(Uint8List image) {
-    sunmi.SunmiPrinter.printImage(image);
+    try {
+      sunmi.SunmiPrinter.printImage(image);
+    } catch (e) {
+      throw Exception('Error printing image: $e');
+    }
   }
 
   static lineWrap(int count) {
-    sunmi.SunmiPrinter.lineWrap(count);
+    try {
+      sunmi.SunmiPrinter.lineWrap(count);
+    } catch (e) {
+      throw Exception('Error performing line wrap: $e');
+    }
   }
 
   static setCustomFontSize(int size) {
-    sunmi.SunmiPrinter.setCustomFontSize(size);
+    try {
+      sunmi.SunmiPrinter.setCustomFontSize(size);
+    } catch (e) {
+      throw Exception('Error setting custom font size: $e');
+    }
   }
 
   static printText(String text) {
-    sunmi.SunmiPrinter.printText(text);
+    try {
+      sunmi.SunmiPrinter.printText(text);
+    } catch (e) {
+      throw Exception('Error printing text: $e');
+    }
   }
 
   static resetFontSize() {
-    sunmi.SunmiPrinter.resetFontSize();
+    try {
+      sunmi.SunmiPrinter.resetFontSize();
+    } catch (e) {
+      throw Exception('Error resetting font size: $e');
+    }
   }
 
   static setFontSize(Object fontSize) {
-    sunmi.SunmiPrinter.setFontSize(fontSize as sunmi_enums.SunmiFontSize);
+    try {
+      sunmi.SunmiPrinter.setFontSize(fontSize as sunmi_enums.SunmiFontSize);
+    } catch (e) {
+      throw Exception('Error setting font size: $e');
+    }
   }
 
   static bold() {
-    sunmi.SunmiPrinter.bold();
+    try {
+      sunmi.SunmiPrinter.bold();
+    } catch (e) {
+      throw Exception('Error setting bold text: $e');
+    }
   }
 
   static resetBold() {
-    sunmi.SunmiPrinter.resetBold();
+    try {
+      sunmi.SunmiPrinter.resetBold();
+    } catch (e) {
+      throw Exception('Error resetting bold text: $e');
+    }
   }
 
   static printRow({List<Object> cols = const []}) {
-    sunmi.SunmiPrinter.printRow(cols: cols as List<sunmi_column.ColumnMaker>);
+    try {
+      // Convert any ColumnMaker instances to sunmi_column.ColumnMaker
+      List<sunmi_column.ColumnMaker> sunmiCols = cols.map((col) {
+        if (col is ColumnMaker) {
+          return col.toSunmiColumnMaker();
+        } else if (col is sunmi_column.ColumnMaker) {
+          return col;
+        } else {
+          throw Exception('Invalid column type: ${col.runtimeType}');
+        }
+      }).toList();
+      
+      sunmi.SunmiPrinter.printRow(cols: sunmiCols);
+    } catch (e) {
+      throw Exception('Error printing row: $e');
+    }
   }
 
   static line({int len = 1}) {
-    sunmi.SunmiPrinter.line(len: len);
+    try {
+      sunmi.SunmiPrinter.line(len: len);
+    } catch (e) {
+      throw Exception('Error printing line: $e');
+    }
   }
 
   static printQRCode(String data) {
-    sunmi.SunmiPrinter.printQRCode(data);
+    try {
+      sunmi.SunmiPrinter.printQRCode(data);
+    } catch (e) {
+      throw Exception('Error printing QR code: $e');
+    }
   }
 
   static cut() {
-    sunmi.SunmiPrinter.cut();
+    try {
+      sunmi.SunmiPrinter.cut();
+    } catch (e) {
+      throw Exception('Error cutting paper: $e');
+    }
   }
 
   static submitTransactionPrint() {
-    sunmi.SunmiPrinter.submitTransactionPrint();
+    try {
+      sunmi.SunmiPrinter.submitTransactionPrint();
+    } catch (e) {
+      throw Exception('Error submitting transaction print: $e');
+    }
   }
 
   static exitTransactionPrint() {
-    sunmi.SunmiPrinter.exitTransactionPrint();
+    try {
+      sunmi.SunmiPrinter.exitTransactionPrint();
+    } catch (e) {
+      throw Exception('Error exiting transaction print: $e');
+    }
   }
 }
 
@@ -115,17 +194,48 @@ class SunmiFontSize {
 }
 
 class ColumnMaker {
-  static createColumnMaker({String text = '', int width = 0, Object align = sunmi_enums.SunmiPrintAlign.LEFT}) {
-    return sunmi_column.ColumnMaker(text: text, width: width, align: align as sunmi_enums.SunmiPrintAlign);
+  final String text;
+  final int width;
+  final Object align;
+
+  ColumnMaker({this.text = '', this.width = 0, this.align = sunmi_enums.SunmiPrintAlign.LEFT}) {
+    try {
+      // This constructor creates a ColumnMaker that wraps the sunmi_column.ColumnMaker
+      // The actual ColumnMaker is created when this is used in printRow
+    } catch (e) {
+      throw Exception('Error creating column maker: $e');
+    }
+  }
+  
+  // For backward compatibility
+  static sunmi_column.ColumnMaker createColumnMaker({String text = '', int width = 0, Object align = sunmi_enums.SunmiPrintAlign.LEFT}) {
+    try {
+      return sunmi_column.ColumnMaker(text: text, width: width, align: align as sunmi_enums.SunmiPrintAlign);
+    } catch (e) {
+      throw Exception('Error creating column maker: $e');
+    }
+  }
+  
+  // Convert this wrapper to the actual sunmi ColumnMaker
+  sunmi_column.ColumnMaker toSunmiColumnMaker() {
+    try {
+      return sunmi_column.ColumnMaker(text: text, width: width, align: align as sunmi_enums.SunmiPrintAlign);
+    } catch (e) {
+      throw Exception('Error creating column maker: $e');
+    }
   }
 }
 
 class Bitmap {
-  static fromProvider(NetworkImage image, int width) async {
-    bitmap_lib.Bitmap bitmap = await bitmap_lib.Bitmap.fromProvider(image);
-    int logoWidth = (384 / 100 * width).toInt();
-    bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: logoWidth));
-    Uint8List headedBitmap = resizedBitmap.buildHeaded();
-    return headedBitmap;
+  static Future<Uint8List> fromProvider(NetworkImage image, int width) async {
+    try {
+      bitmap_lib.Bitmap bitmap = await bitmap_lib.Bitmap.fromProvider(image);
+      int logoWidth = (384 / 100 * width).toInt();
+      bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: logoWidth));
+      Uint8List headedBitmap = resizedBitmap.buildHeaded();
+      return headedBitmap;
+    } catch (e) {
+      throw Exception('Error processing bitmap image: $e');
+    }
   }
 }
