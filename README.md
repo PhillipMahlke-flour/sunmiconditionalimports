@@ -33,3 +33,10 @@ import 'package:sunmiconditionalimports/sunmiprinterimports_exports.dart';
 ```
 
 DO NOT import the other files directly, as they are not intended to be used directly.
+
+
+Replace SunmiPrinter class with SunmiPrinterImports() example: SunmiPrinterImports.printText('Hello World')
+Replace SunmiPrintAlign class with SunmiPrintAlignImports() example: SunmiPrintAlignImports.center()
+Replace SunmiFontSize class with SunmiFontSizeImports() example: SunmiFontSizeImports.md()
+Replace ColumnMaker class with ColumnMakerImports() example: ColumnMakerImports.createColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlignImports.center())
+Replace Bitmap class with BitmapImports() example: BitmapImports.fromProvider(NetworkImage('https://example.com/image.png'), 100)
