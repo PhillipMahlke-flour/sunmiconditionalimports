@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.6
+
+* fixed an error with named parameters
+
 ## 0.0.5
 
 * added named parameters to match behaviour of sunmi_printer_plus
