@@ -23,7 +23,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dev_dependencies:
-  sunmiconditionalimports: ^0.0.10
+  sunmiconditionalimports: ^0.0.11
 ```
 
 ## Usage

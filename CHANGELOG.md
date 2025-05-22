@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.11
+
+* updated platform check
+
 ## 0.0.10
 
 * updated web functionality. removed kDebugMode check
