@@ -22,8 +22,8 @@ This package provides a way to import the sunmi_printer_plus package and the bit
 Add the following to your `pubspec.yaml` file:
 
 ```yaml
-dev_dependencies:
-  sunmiconditionalimports: ^0.0.12
+dependencies:
+  sunmiconditionalimports: ^0.0.13
 ```
 
 ## Usage
