@@ -1,9 +1,5 @@
 # CHANGELOG
 
-## 0.0.13
-
-* updated platform check
-
 ## 0.0.12
 
 * updated platform check
