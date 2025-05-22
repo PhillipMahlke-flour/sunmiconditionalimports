@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.15
+
+* fixed transparent png files being printed as black
+
 ## 0.0.14
 
 * fixed a scaling issue with bitmaps

@@ -229,9 +229,53 @@ class ColumnMaker {
 class Bitmap {
   static Future<Uint8List> fromProvider(NetworkImage image, int width) async {
     try {
-      bitmap_lib.Bitmap bitmap = await bitmap_lib.Bitmap.fromProvider(image);
-      bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: width));
-      Uint8List headedBitmap = resizedBitmap.buildHeaded();
+      // Create a blank white bitmap as the background
+      bitmap_lib.Bitmap whiteBitmap = bitmap_lib.Bitmap.blank(width, width);
+      
+      // Fill it with white color (RGBA: 255, 255, 255, 255)
+      for (int i = 0; i < whiteBitmap.content.length; i += 4) {
+        whiteBitmap.content[i] = 255;     // R
+        whiteBitmap.content[i + 1] = 255; // G
+        whiteBitmap.content[i + 2] = 255; // B
+        whiteBitmap.content[i + 3] = 255; // A (fully opaque)
+      }
+      
+      // Get the original image
+      bitmap_lib.Bitmap originalBitmap = await bitmap_lib.Bitmap.fromProvider(image);
+      
+      // Resize the original image
+      bitmap_lib.Bitmap resizedBitmap = originalBitmap.apply(bitmap_lib.BitmapResize.to(width: width));
+      
+      // Create a new bitmap to combine the white background with the original image
+      int pixelCount = resizedBitmap.content.length ~/ 4;
+      
+      // For each pixel, blend the original image with the white background based on alpha
+      for (int i = 0; i < pixelCount; i++) {
+        int baseIndex = i * 4;
+        int r = resizedBitmap.content[baseIndex];
+        int g = resizedBitmap.content[baseIndex + 1];
+        int b = resizedBitmap.content[baseIndex + 2];
+        int a = resizedBitmap.content[baseIndex + 3];
+        
+        // If pixel has transparency, blend with white background
+        if (a < 255) {
+          double alpha = a / 255.0;
+          // Alpha blending formula: result = foreground * alpha + background * (1 - alpha)
+          whiteBitmap.content[baseIndex] = (r * alpha + 255 * (1 - alpha)).round();
+          whiteBitmap.content[baseIndex + 1] = (g * alpha + 255 * (1 - alpha)).round();
+          whiteBitmap.content[baseIndex + 2] = (b * alpha + 255 * (1 - alpha)).round();
+          whiteBitmap.content[baseIndex + 3] = 255; // Make fully opaque
+        } else {
+          // If pixel is fully opaque, just copy it
+          whiteBitmap.content[baseIndex] = r;
+          whiteBitmap.content[baseIndex + 1] = g;
+          whiteBitmap.content[baseIndex + 2] = b;
+          whiteBitmap.content[baseIndex + 3] = 255; // Make fully opaque
+        }
+      }
+      
+      // Build the final bitmap with header
+      Uint8List headedBitmap = whiteBitmap.buildHeaded();
       return headedBitmap;
     } catch (e) {
       throw Exception('Error processing bitmap image: $e');
