@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.14
+
+* fixed a scaling issue with bitmaps
+
 ## 0.0.13
 
 * updated platform check

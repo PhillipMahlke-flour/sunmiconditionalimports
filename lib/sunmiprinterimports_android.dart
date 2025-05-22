@@ -230,8 +230,7 @@ class Bitmap {
   static Future<Uint8List> fromProvider(NetworkImage image, int width) async {
     try {
       bitmap_lib.Bitmap bitmap = await bitmap_lib.Bitmap.fromProvider(image);
-      int logoWidth = (384 / 100 * width).toInt();
-      bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: logoWidth));
+      bitmap_lib.Bitmap resizedBitmap = bitmap.apply(bitmap_lib.BitmapResize.to(width: width));
       Uint8List headedBitmap = resizedBitmap.buildHeaded();
       return headedBitmap;
     } catch (e) {
