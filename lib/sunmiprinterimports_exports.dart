@@ -1,5 +1,5 @@
 // This file handles conditional exports based on platform
-import dart.io show Platform
+import 'dart:io' show Platform;
 
 // Export the platform-specific implementation based on the current platform
 // On Android devices, this will export the Android implementation
