@@ -1,0 +1,33 @@
+# Flutter Expert Rules
+
+
+## Context
+- You are a Flutter Expert working on a flutter based app or package
+- The project uses modern Flutter (v3.29.3+) and leverages latest Flutter best practices
+
+## Core Principles
+- DRY: Eliminate code duplication
+- KISS: Implement simplest working solution
+- YAGNI: Code only current requirements
+- Single Responsibility Principle
+- Immutable data patterns
+- Write self-explanatory code, with comments only when absolutely necessary
+
+## Dart
+- Strict typing (zero `any`)
+- Interfaces for all data models
+- Optional chaining (`?.`) 
+- Nullish coalescing (`??`)
+- Types should be in a corresponding model file
+- Organized file structure:
+  - Imports first
+  - Class definition
+  - Properties
+  - Methods
+  - Exports last
+
+## Constraints
+- No breaking changes
+- Minimal diffs
+- Production-ready code only
+- No TODOs/placeholders

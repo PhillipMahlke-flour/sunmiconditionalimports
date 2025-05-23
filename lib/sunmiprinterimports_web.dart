@@ -136,4 +136,9 @@ class Bitmap {
     print("We're in Web, nothing to do here!");
     return null;
   }
+
+  static Future<ui.Image?> getImageDimensions(String url) async {
+    print("We're in Web, nothing to do here!");
+    return null;
+  }
 }

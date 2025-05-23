@@ -5,6 +5,8 @@ import 'package:sunmi_printer_plus/enums.dart' as sunmi_enums;
 import 'package:sunmi_printer_plus/column_maker.dart' as sunmi_column;
 import 'package:bitmap/bitmap.dart' as bitmap_lib;
 import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'dart:async';
 
 class SunmiPrinter {
   // Static methods that implement the platform-specific functionality
@@ -227,10 +229,42 @@ class ColumnMaker {
 }
 
 class Bitmap {
+  /// Get the dimensions of an image from a URL
+  static Future<ui.Image?> getImageDimensions(String url) async {
+    try {
+      final NetworkImage provider = NetworkImage(url);
+      final ImageStream stream = provider.resolve(ImageConfiguration.empty);
+      final Completer<ui.Image> completer = Completer<ui.Image>();
+      late ImageStreamListener listener;
+      
+      listener = ImageStreamListener((ImageInfo info, bool _) {
+        completer.complete(info.image);
+        stream.removeListener(listener);
+      }, onError: (dynamic exception, StackTrace? stackTrace) {
+        completer.completeError(exception, stackTrace);
+        stream.removeListener(listener);
+      });
+      
+      stream.addListener(listener);
+      return await completer.future;
+    } catch (e) {
+      throw Exception('Error getting image dimensions: $e');
+    }
+  }
+  
   static Future<Uint8List> fromProvider(NetworkImage image, int width) async {
     try {
-      // Create a blank white bitmap as the background
-      bitmap_lib.Bitmap whiteBitmap = bitmap_lib.Bitmap.blank(width, width);
+      // Get the original image dimensions to maintain aspect ratio
+      final ui.Image? imageInfo = await getImageDimensions(image.url);
+      final int originalWidth = imageInfo?.width ?? width;
+      final int originalHeight = imageInfo?.height ?? width;
+      
+      // Calculate height based on aspect ratio
+      final double aspectRatio = originalWidth / originalHeight;
+      final int scaledHeight = (width / aspectRatio).round();
+      
+      // Create a blank white bitmap as the background with correct dimensions
+      bitmap_lib.Bitmap whiteBitmap = bitmap_lib.Bitmap.blank(width, scaledHeight);
       
       // Fill it with white color (RGBA: 255, 255, 255, 255)
       for (int i = 0; i < whiteBitmap.content.length; i += 4) {
@@ -243,8 +277,10 @@ class Bitmap {
       // Get the original image
       bitmap_lib.Bitmap originalBitmap = await bitmap_lib.Bitmap.fromProvider(image);
       
-      // Resize the original image
-      bitmap_lib.Bitmap resizedBitmap = originalBitmap.apply(bitmap_lib.BitmapResize.to(width: width));
+      // Resize the original image maintaining aspect ratio
+      bitmap_lib.Bitmap resizedBitmap = originalBitmap.apply(
+        bitmap_lib.BitmapResize.to(width: width, height: scaledHeight)
+      );
       
       // Create a new bitmap to combine the white background with the original image
       int pixelCount = resizedBitmap.content.length ~/ 4;

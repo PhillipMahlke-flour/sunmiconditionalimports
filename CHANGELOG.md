@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.16
+
+* improved image scaling to maintain aspect ratio when printing images
+* added method to retrieve image dimensions
+
 ## 0.0.15
 
 * fixed transparent png files being printed as black
