@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.17
+
+* added SumUp payment integration support
+* added SumupPayment class for payment processing
+* improved cross-platform compatibility for payment functionality
+
 ## 0.0.16
 
 * improved image scaling to maintain aspect ratio when printing images

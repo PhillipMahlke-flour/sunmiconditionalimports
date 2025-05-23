@@ -7,6 +7,7 @@ import 'package:bitmap/bitmap.dart' as bitmap_lib;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'dart:async';
+import 'package:sumup/sumup.dart' as sumup_lib;
 
 class SunmiPrinter {
   // Static methods that implement the platform-specific functionality
@@ -316,5 +317,73 @@ class Bitmap {
     } catch (e) {
       throw Exception('Error processing bitmap image: $e');
     }
+  }
+}
+
+class Sumup {
+  static Future<sumup_lib.SumupPluginResponse> login() async {
+    return await sumup_lib.Sumup.login();
+  }
+
+  static Future<sumup_lib.SumupPluginResponse> logout() async {
+    return await sumup_lib.Sumup.logout();
+  }
+
+  static Future<bool?> isLoggedIn() async {
+    return await sumup_lib.Sumup.isLoggedIn;
+  }
+
+  static Future<sumup_lib.SumupPluginResponse> init(String affiliateKey) async {
+    return await sumup_lib.Sumup.init(affiliateKey);
+  }
+
+  static Future<sumup_lib.SumupPluginMerchantResponse> merchant() async {
+    return await sumup_lib.Sumup.merchant;
+  }
+
+  static Future<sumup_lib.SumupPluginResponse> openSettings() async {
+    return await sumup_lib.Sumup.openSettings();
+  }
+
+  static Future<sumup_lib.SumupPluginResponse> prepareForCheckout() async {
+    return await sumup_lib.Sumup.prepareForCheckout();
+  }
+
+  static Future<sumup_lib.SumupPluginCheckoutResponse> checkout(SumupPayment payment) async {
+    final sumupPayment = payment.toSumupPayment();
+    final paymentRequest = sumup_lib.SumupPaymentRequest(sumupPayment);
+    return await sumup_lib.Sumup.checkout(paymentRequest);
+  }
+}
+
+class SumupPayment {
+  final String title;
+  final double total;
+  final String currency;
+  final String foreignTransactionId;
+  final int saleItemsCount;
+  final bool skipSuccessScreen;
+  final double? tip;
+  
+  SumupPayment({
+    required this.title,
+    required this.total,
+    required this.currency,
+    this.foreignTransactionId = '',
+    required this.saleItemsCount,
+    required this.skipSuccessScreen,
+    this.tip,
+  });
+  
+  sumup_lib.SumupPayment toSumupPayment() {
+    return sumup_lib.SumupPayment(
+      title: title,
+      total: total,
+      currency: currency,
+      foreignTransactionId: foreignTransactionId,
+      saleItemsCount: saleItemsCount,
+      skipSuccessScreen: skipSuccessScreen,
+      tip: tip ?? 0.0, // Provide default value of 0.0 if tip is null
+    );
   }
 }
