@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
+import 'dart:typed_data';
 
 class SunmiPrinter {
   static Future<bool?> bindingPrinter() {
@@ -132,13 +134,14 @@ class ColumnMaker {
 }
 
 class Bitmap {
+  static Future<ui.Image?> getImageDimensions(String url) async {
+    print("We're in Web, nothing to do here!");
+    return null;
+  }
+
   static Future<Uint8List?> fromProvider(NetworkImage image, int width) async {
     print("We're in Web, nothing to do here!");
     return null;
   }
 
-  static Future<ui.Image?> getImageDimensions(String url) async {
-    print("We're in Web, nothing to do here!");
-    return null;
-  }
 }
