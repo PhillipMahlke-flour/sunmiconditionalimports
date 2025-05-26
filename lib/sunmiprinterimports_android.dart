@@ -349,9 +349,7 @@ class Sumup {
     return await sumup_lib.Sumup.prepareForCheckout();
   }
 
-  static Future<sumup_lib.SumupPluginCheckoutResponse> checkout(SumupPayment payment) async {
-    final sumupPayment = payment.toSumupPayment();
-    final paymentRequest = sumup_lib.SumupPaymentRequest(sumupPayment);
+  static Future<sumup_lib.SumupPluginCheckoutResponse> checkout(SumupPaymentRequest paymentRequest) async {
     return await sumup_lib.Sumup.checkout(paymentRequest);
   }
 }

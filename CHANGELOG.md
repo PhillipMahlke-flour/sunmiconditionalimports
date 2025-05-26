@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.4
+
+* replaced parameter of checkout. SumupPayment -> SumupPaymentRequest
+
 ## 0.1.3
 
 * fixed an issue with SumupPaymentRequest constructor
