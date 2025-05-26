@@ -280,31 +280,3 @@ class SumupPaymentRequest {
   
   SumupPaymentRequest({required this.payment});
 }
-
-class SumupPluginResponse {
-  final bool status;
-  final Map<String, dynamic>? message;
-  
-  SumupPluginResponse({required this.status, this.message});
-}
-
-class SumupPluginMerchantResponse {
-  final String? merchantCode;
-  final String? merchantCurrency;
-  
-  SumupPluginMerchantResponse({this.merchantCode, this.merchantCurrency});
-}
-
-class SumupPluginCheckoutResponse implements SumupPluginResponse {
-  final bool status;
-  final Map<String, dynamic>? message;
-  final String? transactionCode;
-  final String? cardType;
-  
-  SumupPluginCheckoutResponse({
-    required this.status,
-    this.message,
-    this.transactionCode,
-    this.cardType,
-  });
-}
