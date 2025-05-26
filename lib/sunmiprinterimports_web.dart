@@ -274,3 +274,9 @@ class SumupPayment {
     this.tip,
   });
 }
+
+class SumupPaymentRequest {
+  final SumupPayment payment;
+  
+  SumupPaymentRequest({required this.payment});
+}
