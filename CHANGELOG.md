@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.1
+
+* added SumupPluginResponse and SumupPluginMerchantResponse classes
+* added SumupPluginCheckoutResponse class
+
 ## 0.1.0
 
 * added SumupPaymentRequest class for payment processing
