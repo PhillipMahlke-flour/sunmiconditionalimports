@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2
+
+* updated SumupPaymentRequest constructor to match respective sumup library constructor
+
 ## 0.1.1
 
 * added SumupPluginResponse and SumupPluginMerchantResponse classes

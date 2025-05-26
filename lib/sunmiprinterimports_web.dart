@@ -278,5 +278,5 @@ class SumupPayment {
 class SumupPaymentRequest {
   final SumupPayment payment;
   
-  SumupPaymentRequest({required this.payment});
+  SumupPaymentRequest(this.payment);
 }
