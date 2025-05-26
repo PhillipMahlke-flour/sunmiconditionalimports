@@ -389,7 +389,7 @@ class SumupPayment {
 }
 
 class SumupPaymentRequest {
-  final sumup_lib.SumupPayment payment;
+  final SumupPayment payment;
   
   SumupPaymentRequest(this.payment);
 }

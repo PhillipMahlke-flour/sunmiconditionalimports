@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.3
+
+* fixed an issue with SumupPaymentRequest constructor
+
 ## 0.1.2
 
 * updated SumupPaymentRequest constructor to match respective sumup library constructor
