@@ -350,7 +350,7 @@ class Sumup {
   }
 
   static Future<sumup_lib.SumupPluginCheckoutResponse> checkout(SumupPaymentRequest paymentRequest) async {
-    return await sumup_lib.Sumup.checkout(paymentRequest);
+    return await sumup_lib.Sumup.checkout(paymentRequest.toSumupPaymentRequest());
   }
 }
 
@@ -390,6 +390,10 @@ class SumupPaymentRequest {
   final SumupPayment payment;
   
   SumupPaymentRequest(this.payment);
+  
+  sumup_lib.SumupPaymentRequest toSumupPaymentRequest() {
+    return sumup_lib.SumupPaymentRequest(payment.toSumupPayment());
+  }
 }
 
 class SumupPluginResponse {
