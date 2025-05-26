@@ -219,6 +219,11 @@ class Sumup {
     return _createResponse(false, {'error': 'Not supported on web'});
   }
 
+  static Future<SumupPluginResponse> loginWithToken(String token) async {
+    print("We're in Web, nothing to do here!");
+    return _createResponse(false, {'error': 'Not supported on web'});
+  }
+
   static Future<SumupPluginResponse> logout() async {
     print("We're in Web, nothing to do here!");
     return _createResponse(false, {'error': 'Not supported on web'});

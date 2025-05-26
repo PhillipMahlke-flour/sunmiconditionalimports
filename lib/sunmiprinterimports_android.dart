@@ -325,6 +325,10 @@ class Sumup {
     return await sumup_lib.Sumup.login();
   }
 
+  static Future<sumup_lib.SumupPluginResponse> loginWithToken(String token) async {
+    return await sumup_lib.Sumup.loginWithToken(token);
+  }
+
   static Future<sumup_lib.SumupPluginResponse> logout() async {
     return await sumup_lib.Sumup.logout();
   }

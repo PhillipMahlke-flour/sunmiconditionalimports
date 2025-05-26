@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.5
+
+* added loginWithToken function
+
 ## 0.1.4
 
 * replaced parameter of checkout. SumupPayment -> SumupPaymentRequest
