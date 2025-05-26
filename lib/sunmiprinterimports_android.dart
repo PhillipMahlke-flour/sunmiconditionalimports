@@ -387,3 +387,9 @@ class SumupPayment {
     );
   }
 }
+
+class SumupPaymentRequest {
+  final sumup_lib.SumupPayment payment;
+  
+  SumupPaymentRequest({required this.payment});
+}

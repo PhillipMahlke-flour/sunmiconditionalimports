@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.0
+
+* added SumupPaymentRequest class for payment processing
+
 ## 0.0.17
 
 * added SumUp payment integration support
