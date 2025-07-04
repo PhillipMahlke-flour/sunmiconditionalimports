@@ -1,9 +1,9 @@
+/// Callback function type for scan events
+typedef ScannedCallback = void Function(String value);
+
 /// QRCodeScanner class provides a stub implementation for web platform
 /// since the qrcode_barcode_scanner package only supports Android.
 class QRCodeScanner {
-  // Type definitions
-  /// Callback function type for scan events
-  typedef ScannedCallback = void Function(String value);
   
   // Methods
   /// Initialize the scanner with a callback function - stub implementation for web

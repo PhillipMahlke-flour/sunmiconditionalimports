@@ -1,11 +1,11 @@
 import 'package:qrcode_barcode_scanner/qrcode_barcode_scanner.dart' as qrcode_scanner;
 
+/// Callback function type for scan events
+typedef ScannedCallback = void Function(String value);
+
 /// QRCodeScanner class provides a wrapper around the qrcode_barcode_scanner package
 /// for Android platform.
 class QRCodeScanner {
-  // Type definitions
-  /// Callback function type for scan events
-  typedef ScannedCallback = void Function(String value);
   
   // Properties
   /// Internal instance of the scanner
