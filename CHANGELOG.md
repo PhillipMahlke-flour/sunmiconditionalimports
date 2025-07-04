@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.7
+
+* fixed an error in the params for sumup checkout in web
+
 ## 0.1.6
 
 * added SunmiScanner implementation with platform-specific support

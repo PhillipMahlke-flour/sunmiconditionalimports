@@ -29,7 +29,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  sunmiconditionalimports: ^0.1.6
+  sunmiconditionalimports: ^0.1.7
 ```
 
 ## Usage

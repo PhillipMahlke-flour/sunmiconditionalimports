@@ -1,6 +1,6 @@
 name: sunmiconditionalimports
 description: "A wrapper for the sunmi_printer_plus, sunmi_scanner, bitmap, and sumup packages to use them conditionally based on the platform."
-version: 0.1.6
+version: 0.1.7
 homepage: https://www.flour.io/
 repository: https://github.com/PhillipMahlke-flour/sunmiconditionalimports
 
