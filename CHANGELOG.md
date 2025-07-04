@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.1.6
+
+* added SunmiScanner implementation with platform-specific support
+* implemented onBarcodeScanned, getScannerModel, isScannerAvailable, scan, stop, and sendKeyEvent methods
+* extracted Bitmap implementation into separate files following the same pattern
+* extracted SumUp payment processing into separate files following the same pattern
+* added web compatibility through conditional imports
+* updated package description to include sunmi_scanner
+* improved code organization with separate files for each component
+
 ## 0.1.5
 
 * added loginWithToken function

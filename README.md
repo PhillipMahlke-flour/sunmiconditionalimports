@@ -11,13 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-This package is a wrapper for the sunmi_printer_plus package, bitmap package, and SumUp payment package. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
+This package is a wrapper for the sunmi_printer_plus package, sunmi_scanner package, bitmap package, and SumUp payment package. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
 
 ## Features
 
 This package provides:
 
 * Conditional imports for the sunmi_printer_plus package for receipt printing
+* Conditional imports for the sunmi_scanner package for barcode scanning
 * Bitmap image processing with transparency support and aspect ratio preservation
 * SumUp payment integration for processing card payments
 * Cross-platform compatibility for web and Android
@@ -28,13 +29,13 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  sunmiconditionalimports: ^0.1.5
+  sunmiconditionalimports: ^0.1.6
 ```
 
 ## Usage
 
 ```dart
-import 'package:sunmiconditionalimports/sunmiprinterimports_exports.dart';
+import 'package:sunmiconditionalimports/sunmiconditionalimports.dart';
 ```
 
 # DO NOT import the other files directly, as they are not intended to be used directly.
@@ -49,6 +50,10 @@ Use the following classes from this package:
 - `SunmiFontSize` - example: `SunmiFontSize.md()`
 - `ColumnMaker` - example: `ColumnMaker(text: 'Hello World', width: 10, align: SunmiPrintAlign.center())`
 - `Bitmap` - example: `Bitmap.fromProvider(NetworkImage('https://example.com/image.png'), 100)`
+
+### Barcode Scanning
+
+- `SunmiScanner` - For barcode scanning functionality
 
 ### Payment Processing
 
@@ -82,4 +87,25 @@ if (result.status) {
 } else {
   print('Payment failed: ${result.message}');
 }
+```
+
+#### SunmiScanner Example
+
+```dart
+// Check if scanner is available
+final isAvailable = await SunmiScanner.isScannerAvailable();
+
+// Get scanner model
+final scannerModel = await SunmiScanner.getScannerModel();
+
+// Start scanning
+await SunmiScanner.scan();
+
+// Listen for scanned barcodes
+SunmiScanner.onBarcodeScanned().listen((barcode) {
+  print('Scanned barcode: $barcode');
+});
+
+// Stop scanning when done
+await SunmiScanner.stop();
 ```
