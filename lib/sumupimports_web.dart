@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 /// Interface for SumUp plugin responses
 abstract class SumupPluginResponse {
@@ -19,7 +18,7 @@ class _SumupPluginResponse implements SumupPluginResponse {
 /// Interface for SumUp merchant responses
 abstract class SumupPluginMerchantResponse {
   String? get merchantCode;
-  String? get merchantCurrency;
+  String? get currencyCode;
 }
 
 /// Implementation of SumupPluginMerchantResponse for web
@@ -27,7 +26,7 @@ class _SumupPluginMerchantResponse implements SumupPluginMerchantResponse {
   @override
   final String? merchantCode = null;
   @override
-  final String? merchantCurrency = null;
+  final String? currencyCode = null;
 }
 
 /// Interface for SumUp checkout responses

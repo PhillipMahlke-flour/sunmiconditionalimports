@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:sunmi_scanner/sunmi_scanner.dart' as sunmi_scanner;
 import 'dart:async';
 
@@ -38,7 +37,8 @@ class SunmiScanner {
   /// Start scanning
   static Future<void> scan() async {
     try {
-      await sunmi_scanner.SunmiScanner.scan();
+      // Call scan() method without using its return value
+      sunmi_scanner.SunmiScanner.scan();
     } catch (e) {
       throw Exception('Error starting scanner: $e');
     }
@@ -47,7 +47,8 @@ class SunmiScanner {
   /// Stop scanning
   static Future<void> stop() async {
     try {
-      await sunmi_scanner.SunmiScanner.stop();
+      // Call stop() method without using its return value
+      sunmi_scanner.SunmiScanner.stop();
     } catch (e) {
       throw Exception('Error stopping scanner: $e');
     }
@@ -58,7 +59,8 @@ class SunmiScanner {
   /// [keyCode] - Key code to send
   static Future<void> sendKeyEvent(Object action, int keyCode) async {
     try {
-      await sunmi_scanner.SunmiScanner.sendKeyEvent(
+      // Call sendKeyEvent() method without using its return value
+      sunmi_scanner.SunmiScanner.sendKeyEvent(
         action as sunmi_scanner.KeyAction,
         keyCode
       );

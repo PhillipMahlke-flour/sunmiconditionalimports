@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:sunmi_printer_plus/sunmi_printer_plus.dart' as sunmi;
 import 'package:sunmi_printer_plus/enums.dart' as sunmi_enums;
 import 'package:sunmi_printer_plus/column_maker.dart' as sunmi_column;

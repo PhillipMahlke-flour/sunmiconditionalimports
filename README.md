@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-This package is a wrapper for the sunmi_printer_plus package, sunmi_scanner package, bitmap package, and SumUp payment package. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
+This package is a wrapper for the sunmi_printer_plus, sunmi_scanner, bitmap, and sumup packages. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
 
 ## Features
 
@@ -64,10 +64,14 @@ Use the following classes from this package:
 
 ```dart
 // Initialize SumUp with your affiliate key
-await Sumup.init('YOUR_AFFILIATE_KEY');
+final initResult = await Sumup.init('YOUR_AFFILIATE_KEY');
 
 // Login to SumUp
-await Sumup.login();
+final loginResult = await Sumup.login();
+if (!loginResult.status) {
+  print('Login failed: ${loginResult.message}');
+  return;
+}
 
 // Create a payment
 final payment = SumupPayment(
@@ -78,12 +82,17 @@ final payment = SumupPayment(
   skipSuccessScreen: false,
 );
 
+// Create a payment request
+final paymentRequest = SumupPaymentRequest(payment);
+
 // Process the payment
-final result = await Sumup.checkout(payment);
+final result = await Sumup.checkout(paymentRequest);
 
 // Check the result
 if (result.status) {
   print('Payment successful!');
+  print('Transaction code: ${result.transactionCode}');
+  print('Card type: ${result.cardType}');
 } else {
   print('Payment failed: ${result.message}');
 }

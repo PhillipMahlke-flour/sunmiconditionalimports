@@ -9,6 +9,11 @@
 * added web compatibility through conditional imports
 * updated package description to include sunmi_scanner
 * improved code organization with separate files for each component
+* fixed type compatibility issues in SumUp implementation
+* improved error handling in SumUp implementation with proper try/catch blocks
+* aligned Android and web implementations with consistent interfaces
+* added helper methods to reduce code duplication
+* updated package description to include sumup package
 
 ## 0.1.5
 
