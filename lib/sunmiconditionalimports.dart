@@ -11,3 +11,6 @@ export 'bitmapimports_exports.dart';
 
 // Export the SumUp functionality
 export 'sumupimports_exports.dart';
+
+// Export the QR code barcode scanner functionality
+export 'qrcodescannerimports_exports.dart';

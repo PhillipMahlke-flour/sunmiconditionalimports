@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-This package is a wrapper for the sunmi_printer_plus, sunmi_scanner, bitmap, and sumup packages. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
+This package is a wrapper for the sunmi_printer_plus, sunmi_scanner, bitmap, sumup, and qrcode_barcode_scanner packages. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
 
 ## Features
 
@@ -19,6 +19,7 @@ This package provides:
 
 * Conditional imports for the sunmi_printer_plus package for receipt printing
 * Conditional imports for the sunmi_scanner package for barcode scanning
+* Conditional imports for the qrcode_barcode_scanner package for external scanner devices
 * Bitmap image processing with transparency support and aspect ratio preservation
 * SumUp payment integration for processing card payments
 * Cross-platform compatibility for web and Android
@@ -29,7 +30,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  sunmiconditionalimports: ^0.1.7
+  sunmiconditionalimports: ^0.2.0
 ```
 
 ## Usage
@@ -53,7 +54,31 @@ Use the following classes from this package:
 
 ### Barcode Scanning
 
-- `SunmiScanner` - For barcode scanning functionality
+- `SunmiScanner` - For Sunmi device barcode scanning functionality
+- `QRCodeScanner` - For external QR code and barcode scanner devices
+
+#### QRCodeScanner Example
+
+```dart
+// Initialize the QR code scanner with a callback
+QRCodeScanner.initialize(
+  onScannedCallback: (String scannedValue) {
+    print('Scanned code: $scannedValue');
+    // Process the scanned value here
+  },
+);
+
+// Check if scanner is initialized
+final isInitialized = QRCodeScanner.isInitialized();
+print('Scanner initialized: $isInitialized');
+
+// Dispose the scanner when done (e.g., in dispose method)
+@override
+void dispose() {
+  QRCodeScanner.dispose();
+  super.dispose();
+}
+```
 
 ### Payment Processing
 

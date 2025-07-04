@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.0
+
+* added QR code barcode scanner support with conditional imports
+
 ## 0.1.7
 
 * fixed an error in the params for sumup checkout in web
