@@ -123,7 +123,7 @@ class Sumup {
   }
 
   /// Process a payment checkout (stub implementation for web)
-  static Future<SumupPluginCheckoutResponse> checkout(SumupPayment payment) async {
+  static Future<SumupPluginCheckoutResponse> checkout(SumupPaymentRequest payment) async {
     print("We're in Web, nothing to do here!");
     return _createCheckoutResponse(false, {'error': 'Not supported on web'});
   }
