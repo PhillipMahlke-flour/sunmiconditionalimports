@@ -7,7 +7,7 @@ export 'sunmiprinterimports_exports.dart';
 export 'sunmiscannerimports_exports.dart';
 
 // Export the Bitmap functionality
-//export 'bitmapimports_exports.dart';
+export 'bitmapimports_exports.dart';
 
 // Export the SumUp functionality
 export 'sumupimports_exports.dart';

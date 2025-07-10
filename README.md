@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-This package is a wrapper for the sunmi_printer_plus, sunmi_scanner, bitmap, sumup, and qrcode_barcode_scanner packages. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
+This package is a wrapper for the sunmi_printer_plus, sunmi_scanner, image, sumup, and qrcode_barcode_scanner packages. It provides a way to import these packages conditionally based on the platform. This is useful for when you want to use these packages on Android, while also deploying the same code to the web. Specifically made for usage with FlutterFlow, since FlutterFlow does not support conditional imports.
 
 ## Features
 
@@ -20,7 +20,7 @@ This package provides:
 * Conditional imports for the sunmi_printer_plus package for receipt printing
 * Conditional imports for the sunmi_scanner package for barcode scanning
 * Conditional imports for the qrcode_barcode_scanner package for external scanner devices
-* Bitmap image processing with transparency support and aspect ratio preservation
+* Image processing with transparency support and aspect ratio preservation (using the image package)
 * SumUp payment integration for processing card payments
 * Cross-platform compatibility for web and Android
 
@@ -30,7 +30,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  sunmiconditionalimports: ^0.2.2
+  sunmiconditionalimports: ^0.2.4
 ```
 
 ## Usage

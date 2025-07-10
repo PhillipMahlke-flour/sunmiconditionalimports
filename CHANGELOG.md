@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.2.4
+
+* fixed implementation of bitmap replacement using http package instead of NetworkAssetBundle
+* ensured consistent return types between Android and web implementations
+* improved error handling for network image loading
+
+## 0.2.3
+
+* replaced bitmap package with image package to support minSDK version 21
+* maintained same API interface for bitmap functions
+
 ## 0.2.2
 
 * removed export of bitmap functions as the package is outdated. replacement WIP

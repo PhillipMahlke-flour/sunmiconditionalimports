@@ -14,9 +14,9 @@ class Bitmap {
   }
 
   /// Process and convert a NetworkImage to a Uint8List suitable for printing
-  /// Returns null since this functionality is not available on web
-  static Future<Uint8List?> fromProvider(NetworkImage image, int width) async {
+  /// Returns an empty Uint8List since this functionality is not available on web
+  static Future<Uint8List> fromProvider(NetworkImage image, int width) async {
     print("We're in Web, nothing to do here!");
-    return null;
+    return Uint8List(0); // Return empty Uint8List instead of null to match Android implementation
   }
 }
