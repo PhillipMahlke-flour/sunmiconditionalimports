@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.2
+
+* removed export of bitmap functions as the package is outdated. replacement WIP
+
 ## 0.2.1
 
 * removed export of bitmap functions as the package is outdated. replacement WIP
