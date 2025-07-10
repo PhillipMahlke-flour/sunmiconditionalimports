@@ -70,7 +70,6 @@ class Bitmap {
       final img.Image whiteBackground = img.Image(
         width: width,
         height: scaledHeight,
-        numChannels: 4,
       );
       
       // Fill with white color

@@ -1,10 +1,15 @@
 # CHANGELOG
 
+## 0.2.5
+
+* downgraded image package to 4.2.0 for better compatibility with existing projects
+
 ## 0.2.4
 
 * fixed implementation of bitmap replacement using http package instead of NetworkAssetBundle
 * ensured consistent return types between Android and web implementations
 * improved error handling for network image loading
+* downgraded image package to 4.2.0 for better compatibility with existing projects
 
 ## 0.2.3
 
